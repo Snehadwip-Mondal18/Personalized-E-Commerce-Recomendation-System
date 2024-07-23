@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -31,75 +31,53 @@
 <body>
     <!-- <img src="./Pictures/Logo1.png" alt=""> -->
      <!-- Header part -->
-     <header>
+     <header class="h-96 bg-slate-500 flex flex-col justify-around">
         <!-- Users-info and Favourite -->
-        <div>
+        <div class="flex flex-row justify-around h-2/5 w-full">
             <!-- Phone No. | Email-id -->
-            <div>
+            <div class="w-2/6 flex justify-around">
                 <p><i class="fa-solid fa-phone"></i><span>+011 2231 4545</span></p>
                 <p><i class="fa-solid fa-envelope"></i><span>company@domail.info</span></p>
             </div>
 
             <!-- Account | Compare | Wishlist | Country | Country-Currency -->
-            <div>
-                <div><span>Account</span></div>
-                <div><span>Compare</span></div>
-                <div><span>Wishlist</span></div>
-                <div><span>Country</span></div>
-                <div><span>Currency</span></div>
+            <div class="w-3/6 flex justify-around">
+                <div><i class="fa-solid fa-circle-user"></i><span>My Account</span></div>
+                <div><i class="fa-solid fa-code-compare"></i><span>Compare</span></div>
+                <div><i class="fa-regular fa-heart"></i><span>Wishlist</span></div>
+                <div><i class="fa-regular fa-flag"></i><span>Country</span></div>
+                <div><i class="fa-solid fa-dollar-sign"></i><span>Currency</span></div>
             </div>
         </div>
 
         <!-- logo | category | search-bar | Cart -->
-        <div>
+        <div class="w-full h-3/5 flex">
             <!-- Logo -->
-             <div><img src="../Pictures/Logo1.png" alt=""></div>
+             <div><img src="../Pictures/Logo2.png" alt=""></div>
 
              <!-- Category | Search-bar -->
              <div>
                 <!-- All Category -->
-                <div>
-                    <div class="relative inline-block text-left">
-                        <div>
-                          <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                            Options
-                            <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                            </svg>
-                          </button>
-                        </div>
-                      
-                        <!--
-                          Dropdown menu, show/hide based on menu state.
-                      
-                          Entering: "transition ease-out duration-100"
-                            From: "transform opacity-0 scale-95"
-                            To: "transform opacity-100 scale-100"
-                          Leaving: "transition ease-in duration-75"
-                            From: "transform opacity-100 scale-100"
-                            To: "transform opacity-0 scale-95"
-                        -->
-                        <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                          <div class="py-1" role="none">
-                            <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-2">License</a>
-                            <form method="POST" action="#" role="none">
-                              <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      
+              <!-- <div class="relative">
+                
+                <div class="border-solid border-grey-600 border-[1px] px-3 py-2 cursor-pointer font-bold bg-white rounded flex justify-between w-[200px] shadow-sm">
+                    <span>Options</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+
                 </div>
+                <div class="rounded border-[1px] border-grey-500 bg-white p-8 absolute top-[50px] w-[400px] shadow-md">
+                    <div class="cursor-pointer bg-white hover:bg-grey-300">Account Settings</div>
+                </div>
+              </div> -->
 
                 <!-- Search-bar -->
                  <input type="search" name="" id="">
+                 <!-- Search button -->
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
              </div>
 
              <!-- Cart -->
-             <div></div>
+             <div><i class="fa-solid fa-cart-shopping"></i><span>My Cart</span></div>
         </div>
      </header>
 
@@ -145,5 +123,6 @@
         <!-- [Privacy Policy | Blog | Help Center] | Copyright Section -->
         <div></div>
     </footer>
+    <script src="../JavaScript/dropdown.js"></script>
 </body>
 </html>
