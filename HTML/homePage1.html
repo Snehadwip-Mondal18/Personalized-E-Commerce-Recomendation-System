@@ -31,53 +31,66 @@
 <body>
     <!-- <img src="./Pictures/Logo1.png" alt=""> -->
      <!-- Header part -->
-     <header class="h-96 bg-slate-500 flex flex-col justify-around">
+     <header class="h-48 bg-white flex flex-col justify-around border-b-2 border-slate-200">
         <!-- Users-info and Favourite -->
-        <div class="flex flex-row justify-around h-2/5 w-full">
+        <div class="flex space-x-10 h-1/6 w-full border-b-2 border-slate-200 text-sm">
             <!-- Phone No. | Email-id -->
-            <div class="w-2/6 flex justify-around">
-                <p><i class="fa-solid fa-phone"></i><span>+011 2231 4545</span></p>
-                <p><i class="fa-solid fa-envelope"></i><span>company@domail.info</span></p>
+            <div class="w-5/12 h-3/6 flex justify-around">
+                <div class="flex items-center"><i class="fa-solid fa-phone mr-0.5"></i><span>+011 2231 4545</span></div>
+                <div class="flex items-center"><i class="fa-solid fa-envelope mr-0.5"></i><span>company@domail.info</span></div>
             </div>
 
             <!-- Account | Compare | Wishlist | Country | Country-Currency -->
-            <div class="w-3/6 flex justify-around">
-                <div><i class="fa-solid fa-circle-user"></i><span>My Account</span></div>
-                <div><i class="fa-solid fa-code-compare"></i><span>Compare</span></div>
-                <div><i class="fa-regular fa-heart"></i><span>Wishlist</span></div>
-                <div><i class="fa-regular fa-flag"></i><span>Country</span></div>
-                <div><i class="fa-solid fa-dollar-sign"></i><span>Currency</span></div>
+            <div class="w-4/6 h-2/6 flex justify-around">
+                <div class="flex items-center"><i class="fa-solid fa-circle-user mr-0.5"></i><span>My Account</span></div>
+                <div class="flex items-center"><i class="fa-solid fa-code-compare mr-0.5"></i><span>Compare</span></div>
+                <div class="flex items-center"><i class="fa-regular fa-heart mr-0.5"></i><span>Wishlist</span></div>
+                <div class="flex items-center"><i class="fa-regular fa-flag mr-0.5"></i><span>Country</span></div>
+                <div class="flex items-center"><i class="fa-solid fa-dollar-sign mr-0.5"></i><span>Currency</span></div>
             </div>
         </div>
 
+        <!-- <hr> -->
+
         <!-- logo | category | search-bar | Cart -->
-        <div class="w-full h-3/5 flex">
+        <div class="w-screen h-2/5 flex justify-evenly items-center">
             <!-- Logo -->
-             <div><img src="../Pictures/Logo2.png" alt=""></div>
+             <div class="w-1/5"><img class="rounded-md h-16 outline outline-cyan-500" src="../Pictures/Logo2.png" alt=""></div>
 
              <!-- Category | Search-bar -->
-             <div>
+             <div class=" w-6/12 flex justify-center h-14 border py-1.5 px-4 rounded-md">
                 <!-- All Category -->
-              <!-- <div class="relative">
+                <div class="flex select-none w-2/6">
+                    <div class="relative" id="dropdownButton">
+                        <div onclick="toggleDropdown()" class="px-5 py-2 rounded cursor-pointer flex justify-between gap-4 w-full">
+                            <span>All Categories</span>
                 
-                <div class="border-solid border-grey-600 border-[1px] px-3 py-2 cursor-pointer font-bold bg-white rounded flex justify-between w-[200px] shadow-sm">
-                    <span>Options</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-
+                            <i class="fa-solid fa-chevron-down mt-1"></i>
+                        </div>
+                        <div id="dropdown" class="rounded border-[1px] border-gray-300 bg-white absolute top-10 w-full hidden">
+                            <div class="cursor-pointer hover:bg-gray-200 px-4">All Categories</div>
+                            <div class="cursor-pointer hover:bg-gray-200 px-4">Smartphones </div>
+                            <div class="cursor-pointer hover:bg-gray-200 px-4">Computers</div>
+                            <div class="cursor-pointer hover:bg-gray-200 px-4">Laptops </div>
+                            <div class="cursor-pointer hover:bg-gray-200 px-4">Camerea </div>
+                            <div class="cursor-pointer hover:bg-gray-200 px-4">Watches</div>
+                            <div class="cursor-pointer hover:bg-gray-200 px-4">Lights</div>
+                            <div class="cursor-pointer hover:bg-gray-200 px-4">Air conditioner</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="rounded border-[1px] border-grey-500 bg-white p-8 absolute top-[50px] w-[400px] shadow-md">
-                    <div class="cursor-pointer bg-white hover:bg-grey-300">Account Settings</div>
-                </div>
-              </div> -->
 
-                <!-- Search-bar -->
-                 <input type="search" name="" id="">
-                 <!-- Search button -->
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div class=" w-5/6 flex justify-around">
+                    <!-- Search-bar -->
+                    <input class=" w-5/6 bg-transparent border-none" type="search" name="" id="" placeholder="Enter your key word">
+                    <!-- Search button -->
+                    <!-- <button><i class="fa-solid fa-magnifying-glass"></i></button> -->
+                    <button class=" w-1/6">Search</button>
+                </div>
              </div>
 
              <!-- Cart -->
-             <div><i class="fa-solid fa-cart-shopping"></i><span>My Cart</span></div>
+             <div class="flex justify-around items-center"><i class="fa-solid fa-cart-shopping"></i><span>My Cart</span></div>
         </div>
      </header>
 
