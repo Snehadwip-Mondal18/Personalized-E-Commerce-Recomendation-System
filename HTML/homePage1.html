@@ -15,7 +15,10 @@
             extend: {
                 colors: {
                 clifford: '#da373d',
-                }
+                },
+                textUnderlineOffset: {
+                    3: '3px',
+                  }
             }
             }
         }
@@ -95,8 +98,8 @@
      </header>
 
     <!-- Product Category | Home | Page | Shop | Blog | Contact-->
-    <div>
-        <div class="flex select-none w-2/6">
+    <div class="flex justify-around items-center h-10 border-b-2 border-slate-200">
+        <div class="flex select-none w-1/8">
             <div class="relative dropdownButton2"> <!--id="dropdownButton2"-->
                 <div onclick="toggleDropdown2()" class="px-5 py-2 rounded cursor-pointer w-full">
                     <span>All Departments</span>
@@ -114,16 +117,16 @@
                 </div>
             </div>
         </div>
-        <div>
-            <div class="flex select-none w-2/6">
-                <div class="relative dropdownButton2"> <!--id="dropdownButton2"-->
-                    <div onclick="toggleDropdown2()" class="px-5 py-2 rounded cursor-pointer flex justify-between gap-4 w-full">
+        <div class="flex space-around w-4/6">
+            <div class="flex select-none w-1/5">
+                <div class="relative dropdownHomeButton"> <!--id="dropdownButton2"-->
+                    <div onclick="toggleHomeDropdown()" class="px-5 py-2 rounded cursor-pointer flex justify-between gap-4 w-full">
                         <span>Home</span>
             
                         <i class="fa-solid fa-chevron-down mt-1"></i>
                     </div>
                     <!--id="dropdown2"-->
-                    <div  class="dropdown2 rounded border-[1px] border-gray-300 bg-white absolute top-10 w-full hidden">
+                    <div  class="dropdownHome rounded border-[1px] border-gray-300 bg-white absolute top-10 w-64 hidden">
                         <div class="cursor-pointer hover:bg-gray-200 px-4">All Categories</div>
                         <div class="cursor-pointer hover:bg-gray-200 px-4">Smartphones </div>
                         <div class="cursor-pointer hover:bg-gray-200 px-4">Computers</div>
@@ -135,15 +138,15 @@
                     </div>
                 </div>
             </div>
-            <div class="flex select-none w-2/6">
-                <div class="relative dropdownButton2"> <!--id="dropdownButton2"-->
-                    <div onclick="toggleDropdown2()" class="px-5 py-2 rounded cursor-pointer flex justify-between gap-4 w-full">
+            <div class="flex select-none w-1/5">
+                <div class="relative dropdownPageButton"> <!--id="dropdownButton2"-->
+                    <div onclick="togglePageDropdown()" class="px-5 py-2 rounded cursor-pointer flex justify-between gap-4 w-full">
                         <span>Page</span>
             
                         <i class="fa-solid fa-chevron-down mt-1"></i>
                     </div>
                     <!--id="dropdown2"-->
-                    <div  class="dropdown2 rounded border-[1px] border-gray-300 bg-white absolute top-10 w-full hidden">
+                    <div  class="dropdownPage rounded border-[1px] border-gray-300 bg-white absolute top-10 w-64 hidden">
                         <div class="cursor-pointer hover:bg-gray-200 px-4">All Categories</div>
                         <div class="cursor-pointer hover:bg-gray-200 px-4">Smartphones </div>
                         <div class="cursor-pointer hover:bg-gray-200 px-4">Computers</div>
@@ -155,35 +158,53 @@
                     </div>
                 </div>
             </div>
-            <div class="flex select-none w-2/6">
-                <div class="relative dropdownButton2"> <!--id="dropdownButton2"-->
-                    <div onclick="toggleDropdown2()" class="px-5 py-2 rounded cursor-pointer flex justify-between gap-4 w-full">
+            <div class="flex select-none w-1/5">
+                <div class="relative dropdownShopButton"> <!--id="dropdownButton2"-->
+                    <div onclick="toggleShopDropdown()" class="px-5 py-2 rounded cursor-pointer flex justify-between gap-4 w-full">
                         <span>Shop</span>
             
                         <i class="fa-solid fa-chevron-down mt-1"></i>
                     </div>
                     <!--id="dropdown2"-->
-                    <div  class="dropdown2 rounded border-[1px] border-gray-300 bg-white absolute top-10 w-full hidden">
-                        <div class="cursor-pointer hover:bg-gray-200 px-4">All Categories</div>
-                        <div class="cursor-pointer hover:bg-gray-200 px-4">Smartphones </div>
-                        <div class="cursor-pointer hover:bg-gray-200 px-4">Computers</div>
-                        <div class="cursor-pointer hover:bg-gray-200 px-4">Laptops </div>
-                        <div class="cursor-pointer hover:bg-gray-200 px-4">Camerea </div>
-                        <div class="cursor-pointer hover:bg-gray-200 px-4">Watches</div>
-                        <div class="cursor-pointer hover:bg-gray-200 px-4">Lights</div>
-                        <div class="cursor-pointer hover:bg-gray-200 px-4">Air conditioner</div>
+                    <div  class="dropdownShop rounded border-[1px] border-gray-300 bg-white absolute top-10 w-96 hidden flex justify-around">
+                        <div class="flex flex-col justify-around">
+                            <h4 class="px-4 text-xl font-bold uppercase underline underline-offset-4">Shop Layout</h4>
+                            <div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">All Categories</div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Smartphones </div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Computers</div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Laptops </div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Camerea </div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Watches</div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Lights</div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Air conditioner</div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-around">
+                            <h4 class="px-4 text-xl font-bold uppercase underline underline-offset-4">Shop Layout</h4>
+                            <div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">All Categories</div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Smartphones </div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Computers</div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Laptops </div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Camerea </div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Watches</div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Lights</div>
+                                <div class="cursor-pointer hover:bg-gray-200 px-4">Air conditioner</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="flex select-none w-2/6">
-                <div class="relative dropdownButton2"> <!--id="dropdownButton2"-->
-                    <div onclick="toggleDropdown2()" class="px-5 py-2 rounded cursor-pointer flex justify-between gap-4 w-full">
+            <div class="flex select-none w-1/5">
+                <div class="relative dropdownBlogButton"> <!--id="dropdownButton2"-->
+                    <div onclick="toggleBlogDropdown()" class="px-5 py-2 rounded cursor-pointer flex justify-between gap-4 w-full">
                         <span>Blog</span>
             
                         <i class="fa-solid fa-chevron-down mt-1"></i>
                     </div>
                     <!--id="dropdown2"-->
-                    <div  class="dropdown2 rounded border-[1px] border-gray-300 bg-white absolute top-10 w-full hidden">
+                    <div  class="dropdownBlog rounded border-[1px] border-gray-300 bg-white absolute top-10 w-48 hidden">
                         <div class="cursor-pointer hover:bg-gray-200 px-4">All Categories</div>
                         <div class="cursor-pointer hover:bg-gray-200 px-4">Smartphones </div>
                         <div class="cursor-pointer hover:bg-gray-200 px-4">Computers</div>
@@ -195,7 +216,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="w-1/5 py-2">
                 <a href="">Contact</a>
             </div>
         </div>
