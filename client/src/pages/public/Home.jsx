@@ -1,32 +1,21 @@
-import HeroHome from "../../components/home/HeroHome";
-import PromoBanners from "../../components/home/PromoBanners";
-import NewArrivals from "../../components/home/NewArrivals";
-import TrendingGrid from "../../components/home/TrendingGrid";
-import AllProducts from "../../components/home/AllProducts";
-import BrandLogos from "../../components/home/BrandLogos";
-import InstaFeed from "../../components/home/InstaFeed";
-import StyleGallery from "../../components/home/StyleGallery";
+import HeroSection from "../../components/home/HeroSection";
+import Categories from "../../components/home/Categories";
+import FeaturedProducts from "../../components/home/FeaturedProducts";
+import TrendingProducts from "../../components/home/TrendingProducts";
+import FlashSale from "../../components/home/FlashSale";
 
 export default function Home() {
   return (
-    <div className="space-y-20">
+    <>
+      <HeroSection />
 
-      <HeroHome />
+      <FlashSale />
 
-      <PromoBanners />
+      <Categories />
 
-      <NewArrivals />
+      <FeaturedProducts />
 
-      <TrendingGrid />
-
-      <AllProducts />
-
-      <BrandLogos />
-
-      <StyleGallery />
-
-      <InstaFeed />
-
-    </div>
+      <TrendingProducts />
+    </>
   );
 }

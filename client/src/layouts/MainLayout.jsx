@@ -33,7 +33,7 @@ export default function MainLayout() {
   return (
     <>
         <div className="flex flex-col min-h-screen">
-          <Header />
+          {/* <Header /> */}
           <Navbar />
           <main className="grow">
               <div ref={pageRef} data-page-wrapper className="w-full h-full">
