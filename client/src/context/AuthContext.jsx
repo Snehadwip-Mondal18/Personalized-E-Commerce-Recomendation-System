@@ -1,32 +1,38 @@
 import { useState, useEffect } from "react";
 import { AuthContext } from "./authContext";
 
-export const AuthProvider = ({
-  children,
-}) => {
-  const [user, setUser] =
-    useState(null);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
 
-  const [loading, setLoading] =
-    useState(true);
+  const [token, setToken] = useState(null);
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedUser =
-      localStorage.getItem("user");
+    try {
+      const storedUser =
+        localStorage.getItem("user");
 
-    if (storedUser) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setUser(
-        JSON.parse(storedUser)
+      const storedToken =
+        localStorage.getItem("token");
+
+      if (storedUser && storedToken) {
+        setUser(JSON.parse(storedUser));
+        setToken(storedToken);
+      }
+    } catch (error) {
+      console.error(
+        "Auth initialization error:",
+        error
       );
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   }, []);
 
   const login = (
     userData,
-    token
+    userToken
   ) => {
     localStorage.setItem(
       "user",
@@ -35,33 +41,37 @@ export const AuthProvider = ({
 
     localStorage.setItem(
       "token",
-      token
+      userToken
     );
 
     setUser(userData);
+    setToken(userToken);
   };
 
   const logout = () => {
-    localStorage.removeItem(
-      "user"
-    );
-
-    localStorage.removeItem(
-      "token"
-    );
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
 
     setUser(null);
+    setToken(null);
+  };
+
+  const value = {
+    user,
+    token,
+    loading,
+
+    login,
+    logout,
+
+    isAuthenticated: !!user,
+
+    isAdmin:
+      user?.role === "admin",
   };
 
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        loading,
-        login,
-        logout,
-      }}
-    >
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,5 +1,4 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
 
 import {
 LayoutDashboard,
@@ -14,11 +13,11 @@ LogOut,
 PlusCircle,
 } from "lucide-react";
 
-import { AuthContext } from "../../context/AuthContext";
+import { useAuth } from "../../hooks/useAuth";
+
 
 export default function DashboardLayout() {
-const { user, logout } =
-useContext(AuthContext);
+const { user, logout, isAdmin } = useAuth();
 
 const navigate = useNavigate();
 
@@ -27,12 +26,9 @@ logout();
 navigate("/login");
 };
 
-const isAdmin =
-user?.role === "admin";
 
 return ( <section className="min-h-screen bg-gray-100"> <div className="max-w-7xl mx-auto px-6 py-8">
 
-```
     <div className="grid lg:grid-cols-4 gap-6">
 
       {/* Sidebar */}
@@ -182,7 +178,6 @@ return ( <section className="min-h-screen bg-gray-100"> <div className="max-w-7x
             >
               ADMIN PANEL
             </h3>
-
             <div className="space-y-2">
 
               <Link

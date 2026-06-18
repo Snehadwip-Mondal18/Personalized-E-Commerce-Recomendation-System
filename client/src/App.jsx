@@ -1,14 +1,14 @@
 import {
-BrowserRouter as Router,
-Routes,
-Route,
-useLocation,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
 } from "react-router-dom";
 
 import {
-AnimatePresence,
-// eslint-disable-next-line no-unused-vars
-motion,
+  AnimatePresence,
+  // eslint-disable-next-line no-unused-vars
+  motion,
 } from "framer-motion";
 
 import "./App.css";
@@ -16,7 +16,7 @@ import "./App.css";
 import MainLayout from "./layouts/MainLayout";
 
 /* ===========================
-PUBLIC PAGES
+   PUBLIC PAGES
 =========================== */
 
 import Home from "./pages/public/Home";
@@ -30,26 +30,27 @@ import Cart from "./pages/public/Cart";
 import Wishlist from "./pages/public/Wishlist";
 
 /* ===========================
-AUTH PAGES
+   AUTH PAGES
 =========================== */
 
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 
 /* ===========================
-PROTECTED ROUTE
+   ROUTE GUARDS
 =========================== */
 
 import ProtectedRoute from "./routes/ProtectedRoute";
+import AdminRoute from "./routes/AdminRoute";
 
 /* ===========================
-DASHBOARD LAYOUT
+   DASHBOARD LAYOUT
 =========================== */
 
 import DashboardLayout from "./pages/dashboard/DashboardLayout";
 
 /* ===========================
-USER DASHBOARD
+   USER DASHBOARD
 =========================== */
 
 import DashboardHome from "./pages/dashboard/user/DashboardHome";
@@ -59,7 +60,7 @@ import Addresses from "./pages/dashboard/user/Addresses";
 import Settings from "./pages/dashboard/user/Settings";
 
 /* ===========================
-ADMIN DASHBOARD
+   ADMIN DASHBOARD
 =========================== */
 
 import Products from "./pages/dashboard/admin/Products";
@@ -70,176 +71,203 @@ import Users from "./pages/dashboard/admin/Users";
 import Analytics from "./pages/dashboard/admin/Analytics";
 
 function AnimatedRoutes() {
-const location = useLocation();
+  const location = useLocation();
 
-return ( <AnimatePresence mode="wait">
-<motion.div
-key={location.pathname}
-initial={{ opacity: 0 }}
-animate={{ opacity: 1 }}
-exit={{ opacity: 0 }}
-transition={{
-duration: 0.5,
-ease: "easeInOut",
-}}
-> <Routes location={location}>
-
-```
-      {/* ===========================
-          PUBLIC ROUTES
-      =========================== */}
-
-      <Route element={<MainLayout />}>
-
-        <Route
-          path="/"
-          element={<Home />}
-        />
-
-        <Route
-          path="/blog"
-          element={<Blog />}
-        />
-
-        <Route
-          path="/shop"
-          element={<Shop />}
-        />
-
-        <Route
-          path="/product/:id"
-          element={<ProductDetails />}
-        />
-
-        <Route
-          path="/category/:slug"
-          element={<CategoryPage />}
-        />
-
-        <Route
-          path="/cart"
-          element={<Cart />}
-        />
-
-        <Route
-          path="/about"
-          element={<About />}
-        />
-
-        <Route
-          path="/contact"
-          element={<Contact />}
-        />
-
-        {/* Protected Wishlist */}
-
-        <Route
-          path="/wishlist"
-          element={
-            <ProtectedRoute>
-              <Wishlist />
-            </ProtectedRoute>
-          }
-        />
-
-      </Route>
-
-      {/* ===========================
-          AUTH ROUTES
-      =========================== */}
-
-      <Route
-        path="/login"
-        element={<Login />}
-      />
-
-      <Route
-        path="/signup"
-        element={<Signup />}
-      />
-
-      {/* ===========================
-          DASHBOARD ROUTES
-      =========================== */}
-
-      <Route
-        path="/dashboard"
-        element={
-          <ProtectedRoute>
-            <DashboardLayout />
-          </ProtectedRoute>
-        }
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{
+          duration: 0.5,
+          ease: "easeInOut",
+        }}
       >
+        <Routes location={location}>
 
-        {/* USER DASHBOARD */}
+          {/* ===========================
+              PUBLIC ROUTES
+          =========================== */}
 
-        <Route
-          index
-          element={<DashboardHome />}
-        />
+          <Route element={<MainLayout />}>
 
-        <Route
-          path="orders"
-          element={<UserOrders />}
-        />
+            <Route
+              path="/"
+              element={<Home />}
+            />
 
-        <Route
-          path="wishlist"
-          element={<UserWishlist />}
-        />
+            <Route
+              path="/blog"
+              element={<Blog />}
+            />
 
-        <Route
-          path="addresses"
-          element={<Addresses />}
-        />
+            <Route
+              path="/shop"
+              element={<Shop />}
+            />
 
-        <Route
-          path="settings"
-          element={<Settings />}
-        />
+            <Route
+              path="/product/:id"
+              element={<ProductDetails />}
+            />
 
-        {/* ADMIN DASHBOARD */}
+            <Route
+              path="/category/:slug"
+              element={<CategoryPage />}
+            />
 
-        <Route
-          path="admin/products"
-          element={<Products />}
-        />
+            <Route
+              path="/cart"
+              element={<Cart />}
+            />
 
-        <Route
-          path="admin/add-product"
-          element={<AddProduct />}
-        />
+            <Route
+              path="/about"
+              element={<About />}
+            />
 
-        <Route
-          path="admin/edit-product/:id"
-          element={<EditProduct />}
-        />
+            <Route
+              path="/contact"
+              element={<Contact />}
+            />
 
-        <Route
-          path="admin/orders"
-          element={<AdminOrders />}
-        />
+            {/* Protected Wishlist */}
 
-        <Route
-          path="admin/users"
-          element={<Users />}
-        />
+            <Route
+              path="/wishlist"
+              element={
+                <ProtectedRoute>
+                  <Wishlist />
+                </ProtectedRoute>
+              }
+            />
 
-        <Route
-          path="admin/analytics"
-          element={<Analytics />}
-        />
+          </Route>
 
-      </Route>
+          {/* ===========================
+              AUTH ROUTES
+          =========================== */}
 
-    </Routes>
-  </motion.div>
-</AnimatePresence>
+          <Route
+            path="/login"
+            element={<Login />}
+          />
 
-);
+          <Route
+            path="/signup"
+            element={<Signup />}
+          />
+
+          {/* ===========================
+              USER DASHBOARD
+          =========================== */}
+
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+
+            <Route
+              index
+              element={<DashboardHome />}
+            />
+
+            <Route
+              path="orders"
+              element={<UserOrders />}
+            />
+
+            <Route
+              path="wishlist"
+              element={<UserWishlist />}
+            />
+
+            <Route
+              path="addresses"
+              element={<Addresses />}
+            />
+
+            <Route
+              path="settings"
+              element={<Settings />}
+            />
+
+            {/* ===========================
+                ADMIN ROUTES
+            =========================== */}
+
+            <Route
+              path="admin/products"
+              element={
+                <AdminRoute>
+                  <Products />
+                </AdminRoute>
+              }
+            />
+
+            <Route
+              path="admin/add-product"
+              element={
+                <AdminRoute>
+                  <AddProduct />
+                </AdminRoute>
+              }
+            />
+
+            <Route
+              path="admin/edit-product/:id"
+              element={
+                <AdminRoute>
+                  <EditProduct />
+                </AdminRoute>
+              }
+            />
+
+            <Route
+              path="admin/orders"
+              element={
+                <AdminRoute>
+                  <AdminOrders />
+                </AdminRoute>
+              }
+            />
+
+            <Route
+              path="admin/users"
+              element={
+                <AdminRoute>
+                  <Users />
+                </AdminRoute>
+              }
+            />
+
+            <Route
+              path="admin/analytics"
+              element={
+                <AdminRoute>
+                  <Analytics />
+                </AdminRoute>
+              }
+            />
+
+          </Route>
+
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  );
 }
 
 export default function App() {
-return ( <Router> <AnimatedRoutes /> </Router>
-);
+  return (
+    <Router>
+      <AnimatedRoutes />
+    </Router>
+  );
 }
