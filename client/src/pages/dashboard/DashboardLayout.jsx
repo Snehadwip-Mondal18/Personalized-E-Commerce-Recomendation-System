@@ -182,7 +182,6 @@ return ( <section className="min-h-screen bg-gray-100"> <div className="max-w-7x
             >
               ADMIN PANEL
             </h3>
-
             <div className="space-y-2">
 
               <Link
